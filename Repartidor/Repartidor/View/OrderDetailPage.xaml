@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Repartidor.View.OrderDetailPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ScrollView>
+  
+    
+        <StackLayout
+            BindingContext="{Binding OrderDetail}">
+
+         <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+            </Grid.RowDefinitions>
+
+
+            <Image Aspect="AspectFill" Source="back.jpg"
+                   HeightRequest="100"/>
+            <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
+
+            <StackLayout>
+                <Frame CornerRadius="100" 
+                       HeightRequest="200"
+                           
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                    <Image Source="usuario" 
+                           Aspect="Fill"
+                             
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Frame>
+            </StackLayout>
+
+            <!--  Profile Name  -->
+            <StackLayout Grid.Row="1" Padding="0,50,0,0" HorizontalOptions="Center"
+                         HeightRequest="150"
+                          >
+
+                    
+                <CollectionView
+              ItemsSource="{Binding Clients}" >
+                    <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label
+                                           
+                                        FontSize="Title"
+                                        Text="{Binding Nombre}"
+                                        TextColor="#0A0C5E"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center">
+                                    </Label>
+                               
+                                            <Label
+                                            Text="{Binding Telefono}"></Label>
+                                            <Label
+                                            Text="{Binding Celular}"></Label>
+                                            <Label
+                                         Text="{Binding Direccion}"
+                                         TextColor="#0A0C5E"
+                                         VerticalOptions="Center">
+                                            </Label>
+
+                                   
+
+                                
+                                </StackLayout>
+                            </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+          
+
+            </StackLayout>
+                <StackLayout
+                    Grid.Row="2"
+                    HeightRequest="200">
+                    <ListView
+                 
+              ItemsSource="{Binding Products}"
+               HasUnevenRows="True"
+               >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid >
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SelectMatchCommand}"/>
+                                        </Grid.GestureRecognizers>
+
+
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                     TextColor="#0A0C5E"
+                                    Text="{Binding codproducto}">
+                                        </Label>
+                                        <Label
+                                    Margin="10"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                      TextColor="#0A0C5E"
+                                    Text="{Binding Nombre}">
+                                        </Label>
+                                        <Label
+                                    Grid.Column="2"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                     TextColor="#0A0C5E"
+                                    Text="{Binding Talla}">
+                                        </Label>
+                                        <Label
+                                       Grid.Column="3"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                     TextColor="#0A0C5E"
+                                    Text="{Binding cantidad}">
+                                        </Label>
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                </StackLayout>
+
+            <!--  Social Stats Section  -->
+ 
+               
+
+
+
+            </Grid>
+
+            <Button Text="Continuar"
+                  Clicked="go_signature"
+                TextColor="White"
+                BackgroundColor="#6FD417"></Button>
+
+
+        </StackLayout>
+
+
+
+    </ScrollView>
+
+</ContentPage>

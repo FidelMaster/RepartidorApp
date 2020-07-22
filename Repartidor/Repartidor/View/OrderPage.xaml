@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Repartidor.View.OrderPage"
+             Title="Ordenes Pendientes"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             >
+    <StackLayout
+        BindingContext="{Binding SelectOrder}">
+        <CollectionView
+            ItemsSource="{Binding Orders}"
+            x:Name="Post_List">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                       
+                        <Frame    >
+                            <StackLayout>
+                           
+                          
+                            <Label Text="{Binding Nombre}"
+                                   TextColor="#0A0C5E"
+                                   ></Label>
+                                <Label Text= "{Binding Direccion}"
+                                         TextColor="#0A0C5E"
+                                   VerticalOptions="Center"></Label>
+                            <Label
+                                   Text="{Binding Fecha}"
+                                    TextColor="#0A0C5E"
+                                   VerticalOptions="Center">
+                            </Label>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width=" *"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                   Text="Codigo del pedido:"
+                                     TextColor="#0A0C5E"
+                                   VerticalOptions="Center">
+                                </Label>
+                                <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                              Text="{Binding cod_factura}"
+                             FontSize="Medium"
+                           TextColor="#0A0C5E"
+                            FontAttributes="Bold"
+                             >
+                                </Label>
+                            </Grid>
+
+                            <Button       x:Name="myButton"                          
+                                    Text="Ver Detalle"
+                                    TextColor="White" 
+                                     Command="{Binding SelectOrderCommand}"
+                                    BackgroundColor="#6FD417"></Button>
+                            </StackLayout>
+                         
+                        </Frame>
+                        
+              
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Repartidor.View.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImage="background.png">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout>
+                <Image 
+                    Source="logo" 
+                    WidthRequest="300" >
+                </Image>
+
+                <Label 
+                Text="BIENVENIDO"
+                FontSize="Large"
+                TextColor="{StaticResource PrimaryColor}"
+                HorizontalOptions="CenterAndExpand" />
+                <StackLayout Margin="20"></StackLayout>
+                <Frame Margin="30">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="90*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image 
+                                Source="correo"   
+                                Grid.Row="0" 
+                                Grid.Column="0"/>
+                            <Entry                                
+                             Keyboard="Email"
+                             Text="{Binding Email}"
+                             PlaceholderColor="{StaticResource PrimaryColor}"
+                             x:Name="Email"
+                             TextColor="Black"
+                             Placeholder="Ingrese su correo"
+                             Grid.Row="0" 
+                             Grid.Column="1"
+                             Grid.ColumnSpan="2" 
+                             VerticalOptions="Center"/>
+                        </Grid>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="90*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="password" Grid.Row="0" Grid.Column="0"/>
+                            <Entry
+                             Text="{Binding Password}"                             
+                             PlaceholderColor="{StaticResource PrimaryColor}"
+                             x:Name="password"
+                             IsPassword="True"
+                             Placeholder="Ingrese su password" 
+                             Grid.Row="0" Grid.Column="1"
+                             Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                        </Grid>
+                        <Button
+                           Command="{Binding LoginCommand}"
+                           Text="Ingresar"  
+                           TextColor="White" 
+                           BackgroundColor="#6FD417"
+                           Margin="20">
+
+                        </Button>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:sign="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="Repartidor.View.SignaturePage">
+     
+        <StackLayout>
+        <Frame 
+            Margin=" 30">
+            <Label 
+                Text="FAVOR INGRESAR SU FIRMA"
+                TextColor="{StaticResource PrimaryColor}"
+                FontSize="Title"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center">
+                
+            </Label>
+        </Frame>
+            <sign:SignaturePadView        
+                    x:Name="signature"           
+                    StrokeWidth="5"           
+                    WidthRequest="280"           
+                    HeightRequest="350"
+                    BackgroundColor="White"    
+                    StrokeColor="Black"    
+                    CaptionText="Firma"></sign:SignaturePadView>
+            <Button   
+                Text="Entregar"
+                TextColor="White"
+                BackgroundColor="#6FD417">
+            </Button>
+        </StackLayout>
+ 
+</ContentPage>

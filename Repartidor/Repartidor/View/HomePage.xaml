@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Repartidor.View.HomePage"
+             Title="Perfil "
+             
+                 BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout 
+            >
+
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+
+
+                <Image Aspect="AspectFill" Source="back.jpg" />
+                <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
+
+                <StackLayout>
+                    <Frame CornerRadius="100" 
+                       HeightRequest="200"
+                             Margin="90"
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                        <Image Source="logo" 
+                           Aspect="Fill"
+                             
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    </Frame>
+                </StackLayout>
+
+                <!--  Profile Name  -->
+                <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
+                    <Label
+            Text="{Binding CurrentUser.Nombre , Mode=TwoWay}"
+            FontSize="Large"
+            TextColor="Black"
+            FontAttributes="Bold"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+                    </Label>
+                
+                </StackLayout>
+
+                <!--  Social Stats Section  -->
+                <Grid Grid.Row="2" Margin="0,30" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout>
+                        <Image Source="car" />
+                        <Label
+                           VerticalOptions="Center"
+                            HorizontalOptions="Center"
+            Text="{Binding CurrentUser.Vehiculo , Mode=TwoWay}"
+            FontSize="Small"
+            TextColor="#0A0C5E"
+            FontAttributes="Bold"
+           
+            >
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Image Source="card" />
+                        <Label
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                              Text="{Binding CurrentUser.Placa , Mode=TwoWay}"
+                             FontSize="Small"
+                           TextColor="#0A0C5E"
+                            FontAttributes="Bold"
+                             >
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                        <Image Source="color" />
+                        <Label
+                                VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                              Text="{Binding CurrentUser.Color}"
+                             FontSize="Small"
+                           TextColor="#0A0C5E"
+                            FontAttributes="Bold"
+                             >
+                        </Label>
+                    </StackLayout>
+                </Grid>
+
+
+                <StackLayout Orientation="Vertical" Grid.Row="3"   HorizontalOptions="CenterAndExpand" >
+                      <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Start" VerticalOptions="Center" FontSize="Body" Text="CODIGO DE REPARTIDOR: "></Label>
+                            <Label HorizontalOptions="Start" VerticalOptions="Center" FontSize="Small" Text="{Binding CurrentUser.Id}"></Label>
+                        </StackLayout>
+                       
+                    </StackLayout>
+                </StackLayout>
+            
+            </Grid>
+
+       
+
+            
+
+               
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
